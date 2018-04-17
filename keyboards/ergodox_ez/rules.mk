@@ -40,3 +40,4 @@ SRC += matrix.c \
 QUANTUM_LIB_SRC += i2c_master.c
 
 LAYOUTS = ergodox
+KEY_LOCK_ENABLE = yes

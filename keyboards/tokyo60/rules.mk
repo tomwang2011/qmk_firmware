@@ -31,3 +31,4 @@ BACKLIGHT_ENABLE = yes     # Enable keyboard backlight functionality
 RGBLIGHT_ENABLE = yes      # Enable RGB light
 
 LAYOUTS = 60_hhkb
+DYNAMIC_MACRO_ENABLE = yes
