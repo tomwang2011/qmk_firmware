@@ -92,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   { KC_MSEL, KC_EXLM, KC_UP,      KC_HASH,    KC_DLR,     KC_PERC,  PORTAL,    TOMCAT,    GITGUI,   KC_CIRC,  KC_AMPR,  KC_ASTR,    KC_MINS,  KC_EQL,   KC_TRNS},
   { KC_CAPS, KC_LEFT, KC_DOWN,    KC_RGHT,    RGB_MOD,    KC_SPC,   TTAB,      GITRBI,    GITK,     KC_4,     KC_5,     KC_6,       KC_PGUP,  KC_PGDN,  KC_ENT },
   { KC_LSFT, UNDO   , LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), REDO,     TCPY,      IJCL,      IJFL,     KC_1,     KC_2,     KC_3,       KC_HOME,  KC_UP,    KC_END },
-  { KC_LCTL, KC_LGUI, KC_LALT,    KC_UNDS,    KC_SPC,   MO(_TG),   KC_SPC,    KC_SPC,   KC_ENT,   MO(_LW),  KC_DEL,     KC_LEFT,  KC_DOWN,  KC_RGHT},
+  { KC_LCTL, KC_LGUI, KC_LALT,    KC_UNDS,    MO(_FN),    KC_SPC,   MO(_TG),   KC_SPC,    KC_SPC,   KC_ENT,   MO(_LW),  KC_DEL,     KC_LEFT,  KC_DOWN,  KC_RGHT},
  },
 
  [_LW] = { /* Lower */
