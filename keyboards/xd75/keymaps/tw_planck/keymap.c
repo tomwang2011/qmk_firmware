@@ -96,19 +96,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  },
 
  [_FN] = { /* FUNCTION */
-  { KC_ESC,  KC_F1,   KC_F2,      KC_F3,      KC_F4,      KC_F5,    KC_F6,     KC_F7,     KC_F8,    KC_F9,    KC_F10,   KC_F11,     KC_F12,   KC_TRNS,  KC_TRNS},
-  { KC_MSEL, KC_EXLM, KC_UP,      KC_HASH,    KC_DLR,     KC_PERC,  PORTAL,    TOMCAT,    GITPSF,   KC_CIRC,  KC_AMPR,  KC_ASTR,    KC_MINS,  KC_EQL,   KC_TRNS},
-  { KC_CAPS, KC_LEFT, KC_DOWN,    KC_RGHT,    RGB_MOD,    KC_SPC,   TTAB,      GITRBI,    GITCMT,   KC_4,     KC_5,     KC_6,       KC_PGUP,  KC_PGDN,  KC_ENT },
-  { KC_LSFT, UNDO   , LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), REDO,     TCPY,      IJCL,      IJFL,     KC_1,     KC_2,     KC_3,       KC_HOME,  KC_UP,    KC_END },
-  { KC_HYPR, KC_LCTL, KC_LGUI,    KC_LALT,    MO(_FN),    KC_SPC,   KC_SPC,    MO(_TG),   KC_SPC,   KC_ENT,   MO(_LW),  KC_DEL,     KC_LEFT,  KC_DOWN,  KC_RGHT},
+  { KC_TRNS, KC_F1,   KC_F2,      KC_F3,      KC_F4,          KC_F5,          KC_F6,     KC_F7,     KC_F8,    KC_F9,    KC_F10,   KC_F11,     KC_F12,   KC_TRNS,  KC_TRNS},
+  { KC_TRNS, KC_EXLM, KC_UP,      KC_HASH,    KC_DLR,         KC_PERC,        PORTAL,    TOMCAT,    GITPSF,   KC_CIRC,  KC_AMPR,  KC_ASTR,    KC_MINS,  KC_EQL,   KC_TRNS},
+  { KC_TRNS, KC_LEFT, KC_DOWN,    KC_RGHT,    LCTL(KC_MINS),  LCTL(KC_EQL),   TTAB,      GITRBI,    GITCMT,   KC_4,     KC_5,     KC_6,       KC_PGUP,  KC_PGDN,  KC_ENT },
+  { KC_TRNS, UNDO   , LCTL(KC_X), LCTL(KC_C), LCTL(KC_V),     REDO,           TCPY,      IJCL,      IJFL,     KC_1,     KC_2,     KC_3,       KC_HOME,  KC_UP,    KC_END },
+  { KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS,    MO(_FN),        KC_SPC,         KC_SPC,    MO(_TG),   KC_SPC,   KC_ENT,   MO(_LW),  KC_DEL,     KC_LEFT,  KC_DOWN,  KC_RGHT},
  },
 
  [_LW] = { /* Lower */
-  { KC_ESC,  KC_F1,   KC_F2,      KC_F3,      KC_F4,      KC_F5,    KC_F6,     KC_F7,     KC_F8,    KC_F9,    KC_F10,   KC_F11,     KC_F12,   KC_TRNS,  KC_TRNS},
-  { KC_MSEL, KC_EXLM, KC_UP,      KC_HASH,    KC_DLR,     KC_PERC,  PORTAL,    TOMCAT,    GITPSF,   KC_CIRC,  KC_AMPR,  KC_ASTR,    KC_MINS,  KC_EQL,   KC_TRNS},
-  { KC_CAPS, KC_LEFT, KC_DOWN,    KC_RGHT,    RGB_MOD,    KC_SPC,   TTAB,      GITRBI,    GITCMT,   KC_4,     KC_5,     KC_6,       KC_PGUP,  KC_PGDN,  KC_ENT },
-  { KC_LSFT, UNDO   , LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), REDO,     TRST,      TCPY,      TPST,     KC_1,     KC_2,     KC_3,       KC_HOME,  KC_UP,    KC_END },
-  { KC_HYPR, KC_LCTL, KC_LGUI,    KC_LALT,    MO(_FN),    KC_SPC,   KC_SPC,    MO(_TG),   KC_SPC,   KC_ENT,   MO(_LW),  KC_DEL,     KC_LEFT,  KC_DOWN,  KC_RGHT},
+  { KC_TRNS, KC_F1,   KC_F2,      KC_F3,      KC_F4,          KC_F5,          KC_F6,     KC_F7,     KC_F8,    KC_F9,    KC_F10,   KC_F11,     KC_F12,   KC_TRNS,  KC_TRNS},
+  { KC_TRNS, KC_EXLM, KC_UP,      KC_HASH,    KC_DLR,         KC_PERC,        PORTAL,    TOMCAT,    GITPSF,   KC_CIRC,  KC_AMPR,  KC_ASTR,    KC_MINS,  KC_EQL,   KC_TRNS},
+  { KC_TRNS, KC_LEFT, KC_DOWN,    KC_RGHT,    LCTL(KC_MINS),  LCTL(KC_EQL),   TTAB,      GITRBI,    GITCMT,   KC_4,     KC_5,     KC_6,       KC_PGUP,  KC_PGDN,  KC_ENT },
+  { KC_TRNS, UNDO   , LCTL(KC_X), LCTL(KC_C), LCTL(KC_V),     REDO,           TRST,      TCPY,      TPST,     KC_1,     KC_2,     KC_3,       KC_HOME,  KC_UP,    KC_END },
+  { KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS,    MO(_FN),        KC_SPC,         KC_SPC,    MO(_TG),   KC_SPC,   KC_ENT,   MO(_LW),  KC_DEL,     KC_LEFT,  KC_DOWN,  KC_RGHT},
  },
 
  /* Toggle
@@ -126,11 +126,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
  [_TG] = { /* Toggle */
-  { KC_ESC,  KC_F1,   KC_F2,      KC_F3,      KC_F4,      KC_F5,  KC_F6,     KC_F7,    KC_F8,    KC_F9,    KC_F10,  KC_F11,    KC_F12,   RESET,    KC_TRNS},
-  { KC_MSEL, KC_DEL , KC_UP,      BL_TOGG,    RGB_TOG,    KC_SPC, PORTAL,    TOMCAT,   GITPSF,   KC_7,     KC_8,     KC_9,     KC_TRNS,  KC_LBRC,  KC_RBRC},
-  { KC_CAPS, KC_LEFT, KC_DOWN,    KC_RGHT,    RGB_MOD,    KC_SPC, TTAB,      GITRBI,   GITCMT,   KC_4,     KC_5,     KC_6,     KC_PGUP,  KC_PGDN,  KC_DEL },
-  { KC_LSFT, UNDO   , LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), REDO,   TCPY,      IJCL,     IJFL,     KC_1,     KC_2,     KC_3,     KC_HOME,  KC_UP,    KC_END },
-  { KC_HYPR, KC_LCTL, KC_LGUI,    KC_LALT,    MO(_FN),    KC_SPC, KC_SPC,    MO(_TG),  KC_SPC,   KC_ENT,   MO(_LW),  KC_DEL,   KC_LEFT,  KC_DOWN,  KC_RGHT},
+  { KC_TRNS,  KC_F1,   KC_F2,      KC_F3,      KC_F4,      KC_F5,  KC_F6,     KC_F7,    KC_F8,    KC_F9,    KC_F10,  KC_F11,    KC_F12,   RESET,    KC_TRNS},
+  { KC_TRNS, KC_DEL , KC_UP,      BL_TOGG,    RGB_TOG,    KC_SPC, PORTAL,    TOMCAT,   GITPSF,   KC_7,     KC_8,     KC_9,     KC_TRNS,  KC_LBRC,  KC_RBRC},
+  { KC_TRNS, KC_LEFT, KC_DOWN,    KC_RGHT,    RGB_MOD,    KC_SPC, TTAB,      GITRBI,   GITCMT,   KC_4,     KC_5,     KC_6,     KC_PGUP,  KC_PGDN,  KC_DEL },
+  { KC_TRNS, UNDO   , LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), REDO,   TCPY,      IJCL,     IJFL,     KC_1,     KC_2,     KC_3,     KC_HOME,  KC_UP,    KC_END },
+  { KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS,    MO(_FN),    KC_SPC, KC_SPC,    MO(_TG),  KC_SPC,   KC_ENT,   MO(_LW),  KC_DEL,   KC_LEFT,  KC_DOWN,  KC_RGHT},
  },
 };
 
