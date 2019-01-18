@@ -65,11 +65,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             case GITRBI:
                 SEND_STRING("git rebase -i HEAD~20"); // this is our macro!
                 return false;
-            case PORTAL:
-                SEND_STRING("cd /liferaysc/liferay-portal\n"); // this is our macro!
+            case HEAT:
+                SEND_STRING("cd ~/workplace/AlexaHeat/src/AlexaHeat\n"); // this is our macro!
                 return false;
-            case TOMCAT:
-                SEND_STRING("cd /home/tom/tomcat\n"); // this is our macro!
+            case COMMON:
+                SEND_STRING("cd ~/workplace/AlexaHeat/src/AlexaHeatCommon\n"); // this is our macro!
                 return false;
             case GITPSF:
                 SEND_STRING("git push -f ");
@@ -77,8 +77,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             case GITCMT:
                 SEND_STRING("git commit -m\"");
                 return false;
-            case LRHM:
-                SEND_STRING("-Dliferay.home=/home/tom/tomcat");
+            case TOOLS:
+                SEND_STRING("~/workplace/AlexaHeatTools/src/AlecaHeatTools\n");
                 return false;
             case GWTI:
                 SEND_STRING("gw testIntegration --tests *.");
@@ -106,16 +106,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
  [_QW] = { /* QWERTY */
-  { KC_GESC, KC_1,    KC_2,       KC_3,       KC_4,      KC_5,        KC_GRV,       UNDO,      REDO,     KC_6,     KC_7,     KC_8,       KC_9,     KC_0,     KC_BSPC },
-  { KC_TAB,  KC_Q,    KC_W,       KC_E,       KC_R,      KC_T,        TERM,         KC_LBRC,   KC_RBRC,  KC_Y,     KC_U,     KC_I,       KC_O,     KC_P,     KC_BSLS },
+  { KC_GESC, KC_1,    KC_2,       KC_3,       KC_4,      KC_5,        KC_GRV,       UNDO,      REDO,     KC_6,     KC_7,     KC_8,       KC_9,     KC_0,     KC_BSLS },
+  { KC_TAB,  KC_Q,    KC_W,       KC_E,       KC_R,      KC_T,        TERM,         KC_LBRC,   KC_RBRC,  KC_Y,     KC_U,     KC_I,       KC_O,     KC_P,     KC_BSPC },
   { KC_LCTL, KC_A,    KC_S,       KC_D,       KC_F,      KC_G,        KC_PLUS,      KC_PGUP,   KC_ENT,   KC_H,     KC_J,     KC_K,       KC_L,     KC_SCLN,  KC_QUOT },
   { KC_LSPO, KC_Z,    KC_X,       KC_C,       KC_V,      KC_B,        KC_MINS,      KC_PGDN,   KC_DEL,   KC_N,     KC_M,     KC_COMM,    KC_DOT,   KC_SLSH,  KC_RSPC },
-  { KC_HYPR, KC_LCTL, KC_LGUI,    KC_LALT,    MO(_FN),   KC_SPC,      KC_SPC,       MO(_TG),   KC_SPC,   KC_ENT,   MO(_LW),  KC_UP,    KC_LEFT,  KC_DOWN,  KC_RGHT },
+  { KC_HYPR, KC_LCTL, KC_LALT,    KC_LGUI,    MO(_FN),   KC_SPC,      KC_SPC,       MO(_TG),   KC_SPC,   KC_ENT,   MO(_LW),  KC_UP,    KC_LEFT,  KC_DOWN,  KC_RGHT },
  },
 
  [_FN] = { /* FUNCTION */
   { KC_TRNS, KC_F1,   KC_F2,      KC_F3,      	KC_F4,     	KC_F5,       KC_F6,        KC_F7,     KC_F8,       KC_F9,    KC_F10,   KC_F11,     KC_F12,   KC_TRNS,  KC_TRNS},
-  { KC_TRNS, KC_EXLM, KC_UP,      KC_HASH,    	KC_DLR,    	KC_PERC,     PORTAL,       TOMCAT,    LRHM,        KC_CIRC,  KC_AMPR,  KC_ASTR,    KC_MINS,  KC_EQL,   KC_TRNS},
+  { KC_TRNS, KC_EXLM, KC_UP,      KC_HASH,    	KC_DLR,    	KC_PERC,     HEAT,       COMMON,    TOOLS,        KC_CIRC,  KC_AMPR,  KC_ASTR,    KC_MINS,  KC_EQL,   KC_TRNS},
   { KC_TRNS, KC_LEFT, KC_DOWN,    KC_RGHT,    	KC_TRNS,   	KC_TRNS,     TTAB,         GWTI,      GITCMT,      KC_LEFT,  KC_DOWN,  KC_UP,      KC_RGHT,  KC_PGDN,  KC_ENT },
   { KC_TRNS, UNDO   , LCTL(KC_X), TCPY,         TPST,		     LCTL(KC_T),  LALT(KC_C),   IJCL,      IJFL,        KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_HOME,  KC_UP,    KC_END},
   { KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS,    	MO(_FN),   	KC_SPC,      LCTL(KC_MINS),MO(_TG),   LCTL(KC_EQL),KC_ENT,   MO(_LW),  KC_DEL,     KC_LEFT,  KC_DOWN,  KC_RGHT},
@@ -123,7 +123,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
  [_LW] = { /* Lower */
   { KC_TRNS, KC_F1,   KC_F2,      KC_F3,      	KC_F4,     	KC_F5,       KC_F6,        KC_F7,     KC_F8,       KC_F9,    KC_F10,   KC_F11,     KC_F12,   KC_TRNS,  KC_TRNS},
-  { KC_TRNS, KC_EXLM, KC_UP,      KC_HASH,    	KC_DLR,    	KC_PERC,     PORTAL,       TOMCAT,    GITPSF,      KC_CIRC,  KC_AMPR,  KC_ASTR,    KC_MINS,  KC_EQL,   KC_TRNS},
+  { KC_TRNS, KC_EXLM, KC_UP,      KC_HASH,    	KC_DLR,    	KC_PERC,     HEAT,       COMMON,    TOOLS,      KC_CIRC,  KC_AMPR,  KC_ASTR,    KC_MINS,  KC_EQL,   KC_TRNS},
   { KC_TRNS, KC_LEFT, KC_DOWN,    KC_RGHT,    	KC_TRNS,   	KC_TRNS,     TTAB,         GITRBI,    GITCMT,      KC_LEFT,  KC_DOWN,  KC_UP,      KC_RGHT,  KC_PGDN,  KC_ENT },
   { KC_TRNS, UNDO   , LCTL(KC_X), TCPY,         TPST,		     LCTL(KC_T),  TRST,         TCPY,      TPST,        KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_HOME,  KC_UP,    KC_END },
   { KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS,    	MO(_FN),   	KC_SPC,      LCTL(KC_MINS),MO(_TG),   LCTL(KC_EQL),KC_ENT,   MO(_LW),  KC_DEL,     KC_LEFT,  KC_DOWN,  KC_RGHT},
@@ -145,7 +145,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
  [_TG] = { /* Toggle */
   { KC_TRNS,  KC_F1,   KC_F2,      KC_F3,      KC_F4,      KC_F5,  KC_F6,     KC_F7,    KC_F8,    KC_F9,    KC_F10,  KC_F11,    KC_F12,   RESET,    KC_TRNS},
-  { KC_TRNS, KC_DEL , KC_UP,      BL_TOGG,    RGB_TOG,    KC_SPC, PORTAL,    TOMCAT,   GITPSF,   KC_7,     KC_8,     KC_9,     KC_TRNS,  KC_LBRC,  KC_RBRC},
+  { KC_TRNS, KC_DEL , KC_UP,      BL_TOGG,    RGB_TOG,    KC_SPC, HEAT,       COMMON,    TOOLS,   KC_7,     KC_8,     KC_9,     KC_TRNS,  KC_LBRC,  KC_RBRC},
   { KC_TRNS, KC_LEFT, KC_DOWN,    KC_RGHT,    RGB_MOD,    KC_SPC, TTAB,      GITRBI,   GITCMT,   KC_4,     KC_5,     KC_6,     KC_PGUP,  KC_PGDN,  KC_DEL },
   { KC_TRNS, UNDO   , LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), REDO,   TCPY,      IJCL,     IJFL,     KC_1,     KC_2,     KC_3,     KC_HOME,  KC_UP,    KC_END },
   { KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS,    MO(_FN),    KC_SPC, KC_SPC,    MO(_TG),  KC_SPC,   KC_ENT,   MO(_LW),  KC_DEL,   KC_LEFT,  KC_DOWN,  KC_RGHT},
