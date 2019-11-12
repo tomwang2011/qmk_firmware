@@ -10,6 +10,7 @@
 #define MDIA 2 // media keys
 
 enum keycodes {
+  GITRBI = SAFE_RANGE,
   DYNAMIC_MACRO_RANGE
 };
 #include "dynamic_macro.h"
@@ -48,17 +49,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,         KC_1,         KC_2,   KC_3,   KC_4,   KC_5,   KC_GRV,
         KC_TAB,         KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   TG(SYMB),
         KC_LCTL,        KC_A,         KC_S,   KC_D,   KC_F,   KC_G,
-        KC_LSFT,        KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   KC_MINS,
-        LALT(KC_ENT),        KC_LALT,      KC_LGUI,  KC_LEFT,KC_RGHT,
-                                              LGUI(KC_SPC),  LGUI(KC_Z),
-                                                              KC_HOME,
-                                               KC_SPC,KC_TAB,KC_END,
+        KC_LSPO,        KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   KC_MINS,
+        LALT(KC_ENT),   LGUI(KC_Z), KC_LALT,KC_LGUI,MO(SYMB),
+                                              LGUI(KC_SPC),  LGUI(KC_X),
+                                                            LGUI(KC_C),
+                                               KC_SPC,KC_ENT,LGUI(KC_V),
         // right hand
              KC_TILD,     KC_6,   KC_7,   KC_8,   KC_9,   KC_0,             KC_BSLS,
              TG(SYMB),    KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,             KC_BSPC,
                           KC_H,   KC_J,   KC_K,   KC_L,   KC_SCLN,          KC_QUOT,
              KC_EQL,      KC_N,   KC_M,   KC_COMM,KC_DOT, KC_SLSH,          KC_RSPC,
-                                  KC_UP,  KC_DOWN,KC_LBRC,KC_RBRC,          MO(SYMB),
+                                MO(SYMB), KC_RGUI,KC_LBRC,KC_RBRC,          KC_RGHT,
              MO(MDIA),  LGUI(KC_S),
              KC_PGUP,
              KC_PGDN,KC_UNDS, KC_ENT
@@ -88,22 +89,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [SYMB] = LAYOUT_ergodox(
        // left hand
        KC_TRNS,KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_TRNS,
-       KC_TRNS,LALT(KC_LEFT),KC_UP,LALT(KC_RGHT),KC_RCBR,MPLY,   KC_TRNS,
+       MPLY,LALT(KC_LEFT),KC_UP,LALT(KC_RGHT),GITRBI,KC_TRNS,   KC_TRNS,
        KC_CAPS,KC_LEFT,KC_DOWN,KC_RGHT,KC_RPRN,KC_GRV,
-       KC_TRNS,KC_PERC,KC_CIRC,KC_LBRC,KC_RBRC,KC_TILD,KC_TRNS,
+       KC_TRNS,KC_PERC,KC_CIRC,KC_LBRC,KC_RBRC,KC_TILD,KC_LBRC,
        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
-                                       KC_TRNS,LGUI(KC_X),
-                                               LGUI(KC_C),
-                               KC_TRNS,KC_TRNS,LGUI(KC_V),
+                                       LGUI(S(KC_LBRC)),LGUI(S(KC_RBRC)),
+                                               KC_HOME,
+                               KC_TRNS,KC_TRNS,KC_END,
        // right hand
        KC_TRNS, KC_F6,   KC_F7,  KC_F8,   KC_F9,   KC_F10,  KC_F11,
        KC_TRNS, KC_UP,   KC_7,   KC_8,    KC_9,    KC_ASTR, KC_DEL,
                 KC_DOWN, KC_4,   KC_5,    KC_6,    KC_PLUS, KC_TRNS,
-       KC_TRNS, KC_AMPR, KC_1,   KC_2,    KC_3,    KC_BSLS, KC_TRNS,
+       KC_RBRC, KC_AMPR, KC_1,   KC_2,    KC_3,    KC_BSLS, KC_TRNS,
                          KC_TRNS,KC_DOT,  KC_0,    KC_EQL,  KC_TRNS,
        RGB_TOG  , KC_TRNS,
-       KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS
+       LGUI(LSFT(KC_UP)),
+       LGUI(LSFT(KC_DOWN)), KC_TRNS, KC_TRNS
 ),
 /* Keymap 2: Media and mouse keys
  *
@@ -135,7 +136,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS, KC_TRNS, KC_TRNS, KC_BTN1, KC_BTN2,
                                            KC_TRNS, MREC,
                                                     MSTP,
-                                  KC_TRNS, KC_TRNS, KC_TRNS,
+                                  KC_TRNS, KC_TRNS, RGB_TOG,
     // right hand
        KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
@@ -148,10 +149,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 };
 
+bool capsON = false;
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!process_record_dynamic_macro(keycode, record)) {
+    return false;
+  }
+  if (record->event.pressed) {
+    switch(keycode) {
+      case GITRBI:
+        SEND_STRING("git rebase -i HEAD~20"); // this is our macro!
         return false;
-      }
+      case KC_CAPS:
+        if (!capsON) {
+          ergodox_right_led_3_on();
+          capsON = true;
+        }
+        else {
+          ergodox_right_led_3_off();
+          capsON = false;
+        }
+    }
+  }
   return true;
 }
 
@@ -168,7 +187,7 @@ void matrix_scan_user(void) {
   ergodox_board_led_off();
   ergodox_right_led_1_off();
   ergodox_right_led_2_off();
-  ergodox_right_led_3_off();
+  
   switch (layer) {
     // TODO: Make this relevant to the ErgoDox EZ.
     case SYMB:
