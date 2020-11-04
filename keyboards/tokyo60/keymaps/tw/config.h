@@ -9,5 +9,6 @@
 // place overrides here
 #define LSPO_KEY KC_LBRC
 #define RSPC_KEY KC_RBRC
+#define TAPPING_TERM 200
 
 #endif
